@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
-import LoginImage from "../../images/loginImage.svg";
-import "./components/sign-in-up/sign-in-up.css";
-import Header from "../header/Header";
+// import LoginImage from "./loginImage.svg";
+import "./sign-in-up.css";
+import Header from "../rheader/Rheader";
 
-export default function LogIn() {
+export default function Rlogin() {
   const [error, seterror] = useState();
   const navigate = useNavigate();
   const {
@@ -19,7 +18,7 @@ export default function LogIn() {
 
   const onSubmit = async (data) => {
     const response = await axios
-      .post(`http://localhost:5000/recruiter/login`, data, {
+      .post(`http://localhost:5000/recruiter/Rlogin`, data, {
         headers: {
           "Content-Type": "application/json",
           },
@@ -42,15 +41,9 @@ export default function LogIn() {
       <Header/>
       <div className="sign-in-left-container">
         <div className="sign-in-left-wrapper">
-          <h2>Login</h2>
-          <p>Find the right fit for your passion</p>
-          <div className="google-sign-in">
-            <Link to="">
-              <FcGoogle className="FcGoogle" /> Login in with Google
-            </Link>
-          </div>
+          <h2 id="title">Login</h2>
           <h3>
-            <span>or Login in with Email</span>
+            <span> Login in with Email</span>
           </h3>
 
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -85,7 +78,6 @@ export default function LogIn() {
               placeholder="Enter your password"
               {...register("password", { required: true })}
             />
-            {/*errors.password && <span>This field is required</span>*/}
             <div className="remember-forgot">
               <label className="remember-me-checkbox">
                 <input type="checkbox" />
@@ -93,19 +85,21 @@ export default function LogIn() {
               </label>
               <Link to="">Forgot password?</Link>
             </div>
+            
             <input id="login-submit" type="submit" value="Login" />
+            
           </form>
-          <p className="not-registered">
+          {/* <p className="not-registered">
             Not registered yet?
             <Link to="/login"> Create an Account</Link>
-          </p>
+          </p> */}
         </div>
       </div>
-      <div className="sign-in-right-container">
+      {/* <div className="sign-in-right-container">
         <div className="sign-in-right-wrapper">
           <img src={LoginImage} alt="login-image" />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

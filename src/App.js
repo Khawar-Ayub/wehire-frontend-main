@@ -10,18 +10,24 @@ import Home from "./components/home/Home";
 import Jobs from "./components/jobs/Jobs";
 import SignIn from "./components/sign-in-up/SignIn";
 import SignUp from "./components/sign-in-up/SignUp";
-import LogIn from "./components/recruiter/login/LogIn";
+// MY WORK
 
+import Rlogin from "./components/recruiter/login/RlogIn";
+import PostJob from "./components/recruiter/rjobs/PostJob";
+import ViewJobs from "./components/recruiter/rjobs/ViewJobs"
 function App() {
   return (
     <Router>
       <Routes>
-
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/login" element={<LogIn />} />
+
+        {/* MY WORK */}
+        <Route path="/rlogin" element={<Rlogin />}/>
+        <Route path="/postjob" element={<PostJob />}/>
+        <Route path="/viewjob" element={<ViewJobs />}/>
       </Routes>
     </Router>
   );

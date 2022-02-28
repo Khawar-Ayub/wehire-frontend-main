@@ -2,24 +2,24 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { logout } from "../../action";
-import { login } from "../../action";
+import { logout } from "../../../rAction";
+import { login } from "../../../rAction";
 import axios from "axios";
-import "./header.css";
+import "./rheader.css";
 import { CgMenuRight } from "react-icons/cg";
 import { BsChevronDown } from "react-icons/bs";
 import Avatar from "react-avatar";
-import logo from "../../images/logo.png";
+import logo from "../../../images/PubgLogo.png";
 
-export default function Header(props) {
-  const [header, setHeader] = useState("header");
+export default function Rheader(props) {
+  const [Rheader, setHeader] = useState("header");
   const [error, seterror] = useState();
   const [dropdown, setdropdown] = useState(false);
 
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setHeader("header2") : setHeader("header");
   };
-  const user = useSelector((state) => state.user.value);
+  const recruiter = useSelector((state) => state.user.value);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -28,13 +28,13 @@ export default function Header(props) {
     if (props.whiteColor === true) {
       setHeader("header2");
     }
-    authUser();
+    authRecruiter();
     return () => window.removeEventListener("scroll", listenScrollEvent);
   }, []);
 
   const handleLogout = async () => {
     const response = await axios
-      .get(`http://localhost:5000/user/logout`, {
+      .get(`http://localhost:5000/recruiter/logout`, {
         headers: {
           "Content-Type": "application/json",
         },
@@ -55,17 +55,17 @@ export default function Header(props) {
       });
   };
 
-  const authUserAPICall = async () => {
-    const response = await axios.get("http://localhost:5000/user/authUser", {
+  const authRecruiterAPICall = async () => {
+    const response = await axios.get("http://localhost:5000/recruiter/authRecruiter", {
       headers: {
         "Content-Type": "application/json",
       },
       withCredentials: true,
     });
-    return await response;
+    return response;
   };
-  const authUser = () => {
-    authUserAPICall()
+  const authRecruiter = () => {
+    authRecruiterAPICall()
       .then((res) => {
         if (res.status === 200) {
           dispatch(login({ email: res.data.email, isLoggedIn: true }));
@@ -78,9 +78,9 @@ export default function Header(props) {
       });
   };
   return (
-    <div className={header}>
+    <div className={Rheader}>
       <div className="header-left-container">
-        <img src={logo} alt="WeHire" />
+        <img src={logo} alt="FIGHTING CLUB" />
       </div>
       <div className="header-right-container">
         <div className="header-right-wrapper">
@@ -89,16 +89,17 @@ export default function Header(props) {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/jobs">Jobs</Link>
+              <Link to="/viewjob">Jobs</Link>
             </li>
-            {user.isLoggedIn ? (
+            {/* <h1 id="title">Login</h1> */}
+            {recruiter.isLoggedIn ? (
               <div className="header-loggedin">
                 <div
                   className="header-loggedin-wrapper"
                   onClick={() => setdropdown(!dropdown)}
                 >
                   <Avatar
-                    name={user.email}
+                    name={recruiter.email}
                     color="var(--button)"
                     maxInitials={2}
                     round={true}
@@ -111,26 +112,21 @@ export default function Header(props) {
                   />
                 </div>
                 <ul id={dropdown ? "header-dropdown" : ""}>
-                  <li>Update Profile</li>
+                  <li>Update Company Profile</li>
                   <li onClick={handleLogout}>Logout</li>
                 </ul>
               </div>
             ) : (
               <>
-                <li>
+                {/* <li>
                   <Link to="/signup">Join Now</Link>
-                </li>
-                {/*  */}
-                <li>
-                  <Link to="/login/login.jsx">Recruiter Login</Link>
-                </li>
-                {/*  */}
+                </li> */}
 
-                <li>
+                {/* <li>
                   <Link to="/signin" className="signin-button">
                     Sign In
                   </Link>
-                </li>
+                </li> */}
               </>
             )}
           </ul>

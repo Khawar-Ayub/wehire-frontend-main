@@ -4,19 +4,19 @@ const initialStateValue = {
   email: "",
   isLoggedIn: false,
 };
-const userSlice = createSlice({
-  name: "user",
+const recruiterSlice = createSlice({
+  name: "recruiter",
   initialState: {
     value: initialStateValue,
   },
   reducers: {
-    login: (state, action) => {
-      state.value = action.payload;
+    login: (state, rAction) => {
+      state.value = rAction.payload;
     },
     logout: (state) => {
       state.value = initialStateValue;
     },
   },
 });
-export const { login, logout } = userSlice.actions;
-export default userSlice.reducer;
+export const { login, logout } = recruiterSlice.actions;
+export default recruiterSlice.reducer;

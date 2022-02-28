@@ -1,5 +1,11 @@
+/* #title{
+  text-align: center;
+  margin-right: 110%;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 50px;
+} */
 .header {
-  background-color: transparent;
+  background-color:antiquewhite;
   display: flex;
   padding: 10px;
   z-index: 99999;

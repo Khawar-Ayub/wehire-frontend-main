@@ -33,7 +33,7 @@ export default function SignIn() {
         }
       })
       .catch((err) => {
-        seterror(err.response.data.message);
+        // seterror(err.response.data.message);
       });
   };
 

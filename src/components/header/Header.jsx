@@ -51,7 +51,7 @@ export default function Header(props) {
       })
       .catch((err) => {
         console.log("err", err.response.data.message);
-        seterror(err.response.data.message);
+        // seterror(err.response.data.message);
       });
   };
 
@@ -74,7 +74,7 @@ export default function Header(props) {
         }
       })
       .catch((err) => {
-        console.log("err", err.response.data.message);
+        // console.log("err", err.response.data.message);
       });
   };
   return (
@@ -120,11 +120,6 @@ export default function Header(props) {
                 <li>
                   <Link to="/signup">Join Now</Link>
                 </li>
-                {/*  */}
-                <li>
-                  <Link to="/login/login.jsx">Recruiter Login</Link>
-                </li>
-                {/*  */}
 
                 <li>
                   <Link to="/signin" className="signin-button">
