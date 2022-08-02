@@ -34,7 +34,7 @@ export default function Header(props) {
 
   const handleLogout = async () => {
     const response = await axios
-      .get(`http://localhost:5000/user/logout`, {
+      .get(`http://13.232.134.204:5000/user/logout`, {
         headers: {
           "Content-Type": "application/json",
         },

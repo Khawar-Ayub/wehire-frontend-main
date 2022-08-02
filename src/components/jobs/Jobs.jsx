@@ -12,11 +12,11 @@ export default function Jobs() {
   const [jobDetails, setJobDetails] = useState([]);
   const getAllJobs = async () => {
     const response = await axios
-      .get(`http://localhost:5000/recruiter/jobs/alljobs`)
+      .get(`http://13.232.134.204:5000/recruiter/jobs/alljobs`)
       .then((res) => {
         if (res.status === 200) {
           setJobs(res.data);
-          handleJobClick(res.data[0]);
+          handleJobClick(res.data[0]); ////
           console.log(res.data);
         } else {
           seterror(res.data.message);

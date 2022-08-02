@@ -1,7 +1,11 @@
+*{
+  color: #2c6f8b;
+}
 .sign-in,
 .sign-up {
   display: flex;
   height: 100vh;
+  
 }
 .sign-in-right-container {
   width: 50%;

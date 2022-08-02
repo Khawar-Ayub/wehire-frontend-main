@@ -19,7 +19,7 @@ export default function SignIn() {
 
   const onSubmit = async (data) => {
     const response = await axios
-      .post(`http://localhost:5000/user/login`, data, {
+      .post(`http://13.232.134.204:5000/user/login`, data, {
         headers: {
           "Content-Type": "application/json",
           },

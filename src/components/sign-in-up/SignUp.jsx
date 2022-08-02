@@ -24,7 +24,7 @@ export default function SignUp() {
       seterror("Password and Confirm Password does not match");
     } else {
       await axios
-        .post(`http://localhost:5000/user/register`, data)
+        .post(`http://13.232.134.204:5000/user/register`, data)
         .then((res) => {
           if (res.status === 201) {
             setmessage(res.data.message);

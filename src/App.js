@@ -5,16 +5,14 @@ import {
   Route
 } from "react-router-dom";
 import './App.css';
-
+import ApplyJob from "./components/apply-job/ApplyJob";
+// import StartTest from "./components/apply-job/StartTest";
 import Home from "./components/home/Home";
 import Jobs from "./components/jobs/Jobs";
 import SignIn from "./components/sign-in-up/SignIn";
 import SignUp from "./components/sign-in-up/SignUp";
-// MY WORK
+import Quiz from "./components/quiz/Quiz";
 
-import Rlogin from "./components/recruiter/login/RlogIn";
-import PostJob from "./components/recruiter/rjobs/PostJob";
-import ViewJobs from "./components/recruiter/rjobs/ViewJobs"
 function App() {
   return (
     <Router>
@@ -23,11 +21,11 @@ function App() {
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/applyjob" element={<ApplyJob />} />
+        <Route path="/quiztest" element={<Quiz />} />
 
-        {/* MY WORK */}
-        <Route path="/rlogin" element={<Rlogin />}/>
-        <Route path="/postjob" element={<PostJob />}/>
-        <Route path="/viewjob" element={<ViewJobs />}/>
+
+        
       </Routes>
     </Router>
   );
